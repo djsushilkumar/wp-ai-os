@@ -1,0 +1,17 @@
+# Development & Build Artifacts
+.php-cs-fixer.cache
+.phpunit.result.cache
+WP-AI-OS-v1.0.0.zip
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies (installed via composer install)
+# vendor/ is included in release ZIP but tracked separately

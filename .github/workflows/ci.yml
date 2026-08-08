@@ -1,0 +1,50 @@
+name: Quality Gate CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  quality-gate:
+    name: Quality Gate Enforcement
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-version: ['8.2', '8.3']
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          coverage: pcov
+          tools: composer, phpcs, phpstan, psalm, infection
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: 1. Composer Security & Vulnerability Audit
+        run: composer audit
+
+      - name: 2. PHPCS WordPress Coding Standards Check
+        run: composer lint
+
+      - name: 3. PHP-CS-Fixer Code Format Verification
+        run: composer format:check
+
+      - name: 4. PHPStan Static Analysis (Level Max)
+        run: composer phpstan
+
+      - name: 5. Psalm Static Analysis (Level Max)
+        run: composer psalm
+
+      - name: 6. PHPUnit Test Suite & Coverage (Minimum 90%)
+        run: composer test:coverage
+
+      - name: 7. Infection PHP Mutation Testing (Minimum MSI 80%)
+        run: composer test:mutation

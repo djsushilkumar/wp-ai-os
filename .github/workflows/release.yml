@@ -1,0 +1,41 @@
+name: Release Validation & Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release-build:
+    name: Validate & Package Release Artifact
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP Environment
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          coverage: pcov
+          tools: composer
+
+      - name: Install Production Dependencies Only
+        run: composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Validate Plugin Bootstrap & Syntax
+        run: php -l wp-ai-os.php
+
+      - name: Build Release ZIP Package
+        run: |
+          mkdir -p build/wp-ai-os
+          rsync -av --exclude='build' --exclude='.git' --exclude='.github' --exclude='tests' --exclude='phpunit.xml' --exclude='phpstan.neon' ./ build/wp-ai-os/
+          cd build && zip -r wp-ai-os.zip wp-ai-os/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: build/wp-ai-os.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

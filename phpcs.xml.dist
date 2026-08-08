@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<ruleset name="WPAIOS">
+    <description>WordPress Coding Standards for WP AI OS.</description>
+
+    <file>src</file>
+    <file>wp-ai-os.php</file>
+
+    <arg value="sp"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <rule ref="WordPress-Extra">
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
+        <exclude name="Generic.Formatting.MultipleStatementAlignment"/>
+        <exclude name="WordPress.WhiteSpace.ControlStructureSpacing"/>
+        <exclude name="WordPress.NamingConventions.ValidVariableName"/>
+        <exclude name="WordPress.NamingConventions.ValidFunctionName"/>
+        <exclude name="PEAR.Functions.FunctionCallSignature"/>
+        <exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+        <exclude name="WordPress.Files.FileName"/>
+        <exclude name="WordPress.PHP.YodaConditions"/>
+        <exclude name="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
+        <exclude name="WordPress.Arrays.ArrayKeySpacingRestrictions"/>
+        <exclude name="Generic.Classes.OpeningBraceSameLine"/>
+        <exclude name="Generic.Functions.OpeningFunctionBraceKernighanRitchie"/>
+        <exclude name="WordPress.WhiteSpace.OperatorSpacing"/>
+        <exclude name="Generic.Commenting"/>
+        <exclude name="Squiz.Commenting"/>
+        <exclude name="Universal.NamingConventions.NoReservedKeywordParameterNames"/>
+        <exclude name="Generic.WhiteSpace.ArbitraryParenthesesSpacing"/>
+        <exclude name="PSR2.Methods.FunctionCallSignature"/>
+        <exclude name="NormalizedArrays.Arrays.ArrayBraceSpacing"/>
+        <exclude name="WordPress.WP.AlternativeFunctions"/>
+        <exclude name="WordPress.Arrays.MultipleStatementAlignment"/>
+        <exclude name="WordPress.Security.EscapeOutput"/>
+        <exclude name="WordPress.Security.NonceVerification"/>
+        <exclude name="WordPress.WhiteSpace.CastStructureSpacing"/>
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound"/>
+        <exclude name="WordPress.Arrays.ArrayDeclarationSpacing"/>
+        <exclude name="NormalizedArrays.Arrays.CommaAfterLast"/>
+        <exclude name="Universal.Operators.DisallowShortTernary"/>
+        <exclude name="Squiz.PHP.DisallowSizeFunctionsInLoops"/>
+        <exclude name="WordPress.DateTime.RestrictedFunctions"/>
+        <exclude name="WordPress.PHP.NoSilencedErrors"/>
+        <exclude name="WordPress.PHP.DevelopmentFunctions"/>
+        <exclude name="Universal.Operators.DisallowStandalonePostIncrementDecrement"/>
+        <exclude name="WordPress.DB.PreparedSQL.InterpolatedNotPrepared"/>
+        <exclude name="Universal.WhiteSpace.AnonClassKeywordSpacing"/>
+        <exclude name="Generic.CodeAnalysis"/>
+        <exclude name="WordPress.WP.CapitalPDangit"/>
+        <exclude name="WordPress.PHP.DiscouragedPHPFunctions"/>
+        <exclude name="WordPress.NamingConventions.PrefixAllGlobals.DynamicHooknameFound"/>
+    </rule>
+
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="WPAIOS"/>
+                <element value="wp_ai_os"/>
+                <element value="WPAI_OS"/>
+                <element value="wpai_os"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>

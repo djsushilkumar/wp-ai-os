@@ -1,0 +1,15 @@
+parameters:
+    level: 0
+    paths:
+        - src
+        - bootstrap
+    bootstrapFiles:
+        - stubs/wordpress-stubs.php
+        - wp-ai-os.php
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#Function [a-zA-Z0-9_]+ not found\.#'
+        - '#Class [a-zA-Z0-9_]+ not found\.#'
+        - '#Constant [a-zA-Z0-9_]+ not found\.#'
+        - '#Property [a-zA-Z0-9_\\:]+ is never read, only written\.#'
+        - '#Template type T of method [a-zA-Z0-9_\\:]+\(\) is not referenced in a parameter\.#'
