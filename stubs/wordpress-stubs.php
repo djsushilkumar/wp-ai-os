@@ -3,6 +3,10 @@
  * WordPress Core Stubs for IDE Autocompletion and Static Analysis.
  */
 
+if (function_exists('wp_initial_constants') || (defined('ABSPATH') && file_exists(ABSPATH . 'wp-admin/includes/admin.php'))) {
+    return;
+}
+
 if (!defined('ABSPATH')) {
     define('ABSPATH', __DIR__ . '/');
 }
