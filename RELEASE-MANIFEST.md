@@ -8,12 +8,12 @@
 | :--- | :--- |
 | **Version** | `1.0.0` |
 | **Build Date** | `2026-08-08T15:24:03Z` |
-| **Git Commit** | `899631490c50c47f698f33cc95636ba777cb5920` |
+| **Git Commit** | `0ea925133285838011f7961d863e7809b6731a55` |
 | **Git Tag** | `v1.0.0` |
 | **Package** | `WP-AI-OS-v1.0.0.zip` |
-| **Package Size** | `1,274,170 bytes (1.22 MB)` |
-| **Package SHA-256** | `d6defb3f7eec3b8cb70850bfe1e56de9d5df1105b55475258e2dd6ea9ef00170` |
-| **Production Files** | `1,074` |
+| **Package Size** | `1,409,754 bytes (1.34 MB)` |
+| **Package SHA-256** | `9f657042b8c1c66dd3ead1b80d5b30c5eafbd7679fa8b91eacf92728905eaa0f` |
+| **Production Files** | `1,075` |
 
 ---
 
